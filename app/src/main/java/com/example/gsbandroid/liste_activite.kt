@@ -1,5 +1,6 @@
 package com.example.gsbandroid
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -30,9 +31,9 @@ class liste_activite : AppCompatActivity() {
         this.token = intent.getStringExtra("token")
         this.idPraticien = intent.getStringExtra("idPraticien")
         init()
-        event()
         chargerActivite()
         chargerSpinner()
+        event()
     }
 
     fun init() {
@@ -56,7 +57,7 @@ class liste_activite : AppCompatActivity() {
                 val id_activite = lesNouvellesActivites[spNouvellesActivites.selectedItemPosition - 1].id_activite_compl.toString()
                 val reponse = activite.inviter(this.idPraticien, this.token, id_activite)
                 if (reponse.uneActivite != null) {
-                    this.token = reponse.token
+                    this.token = reponse.token!!
                     chargerActivite()
                     chargerSpinner()
                 } else if (reponse.token == "Invalide"){
@@ -66,6 +67,15 @@ class liste_activite : AppCompatActivity() {
                 }
             }
         }
+        lvActivite.setOnItemClickListener { parent, view, position, id ->
+            //toast(lesActivites[position].id_activite_compl.toString())
+            val intent = Intent(this, detail_activite::class.java)
+            val idActivite = lesActivites[position].id_activite_compl.toString()
+            intent.putExtra("idPraticien", idPraticien)
+            intent.putExtra("idActivite", idActivite)
+            intent.putExtra("token", token)
+            startActivityForResult(intent, 0)
+        }
     }
 
     fun chargerActivite() {
@@ -73,7 +83,7 @@ class liste_activite : AppCompatActivity() {
         val reponseActivite = activite.getActivityofPraticien(idPraticien, token)
         if ((reponseActivite.Message == null) && (reponseActivite.token != "Invalide")) {
             this.lesActivites = reponseActivite.lesActivites!!
-            this.token = reponseActivite.token
+            this.token = reponseActivite.token!!
         } else if (reponseActivite.token == "Invalide"){
             toast("Erreur : le token est invalide")
         } else {
@@ -81,7 +91,7 @@ class liste_activite : AppCompatActivity() {
         }
         val laListe = ArrayList<String>()
         for (uneActivite in lesActivites) {
-            laListe.add(uneActivite.date_activite + ' ' + uneActivite.lieu_activite + ' ' + uneActivite.motif_activite + ' ' + uneActivite.theme_activite)
+            laListe.add(uneActivite.date_activite + ' ' + uneActivite.theme_activite)
         }
         val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, laListe)
         lvActivite.adapter = adapter
@@ -92,7 +102,7 @@ class liste_activite : AppCompatActivity() {
         val reponseActivite = activite.getNewActivityofPraticien(idPraticien, token)
         if ((reponseActivite.Message == null) && (reponseActivite.token != "Invalide")) {
             this.lesNouvellesActivites = reponseActivite.lesActivites!!
-            this.token = reponseActivite.token
+            this.token = reponseActivite.token!!
         } else if (reponseActivite.token == "Invalide"){
             toast("Erreur : le token est invalide")
         } else {
@@ -107,5 +117,15 @@ class liste_activite : AppCompatActivity() {
             ArrayAdapter<String>(applicationContext, android.R.layout.simple_spinner_dropdown_item, laListe)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spNouvellesActivites.adapter = adapter
+    }
+
+    @SuppressLint("MissingSuperCall")
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (data != null) {
+            token =  data.getStringExtra("token")
+            init()
+            chargerActivite()
+            chargerSpinner()
+        }
     }
 }
