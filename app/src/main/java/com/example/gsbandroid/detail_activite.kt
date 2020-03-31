@@ -64,10 +64,10 @@ class detail_activite : AppCompatActivity() {
     }
 
     fun remplirPage() {
-        this.tvTitre.text = "Detail de l'activite : " + uneActivite.theme_activite
-        this.tvMotif.text = "Motif de l'activite : " + uneActivite.motif_activite
-        this.tvDate.text = "Date de l'activite : " + uneActivite.date_activite
-        this.tvLieu.text = "Lieu de l'activite :" + uneActivite.lieu_activite
+        this.tvTitre.text = "Détail de l'activité : " + uneActivite.theme_activite
+        this.tvMotif.text = "Motif de l'activité : " + uneActivite.motif_activite
+        this.tvDate.text = "Date de l'activité : " + uneActivite.date_activite
+        this.tvLieu.text = "Lieu de l'activité :" + uneActivite.lieu_activite
         if (uneActivite.specialiste == "O") {
             this.btnSpecialiste.text = "Oui"
         } else {
@@ -99,7 +99,7 @@ class detail_activite : AppCompatActivity() {
         val reponse = activite.supprimerInvitation(idPraticien, token, idActivite)
         if ((reponse.Message == "ok") && (reponse.token != "Invalide")) {
             this.token = reponse.token.toString()
-            toast("L'invitation " + uneActivite.theme_activite + " a ete supprime")
+            toast("L'invitation " + uneActivite.theme_activite + " a été supprimé")
             setResult(
                 Activity.RESULT_OK,
                 Intent().putExtra("token", this.token)

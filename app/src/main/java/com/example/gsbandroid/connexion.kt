@@ -46,7 +46,7 @@ class connexion : AppCompatActivity() {
         val laConnexion = ServiceConnexion()
         var etat = laConnexion.signIn(this.ptId.text.toString(), this.ptPwd.text.toString())
         if (etat.message == "ok") {
-            toast("Vous etes bien connecte")
+            toast("Vous êtes bien connecté")
             setResult(
                 Activity.RESULT_OK,
                 Intent().putExtra("token", etat.token)

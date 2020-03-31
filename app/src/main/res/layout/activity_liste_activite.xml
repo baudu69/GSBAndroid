@@ -8,7 +8,7 @@
         tools:context=".liste_activite">
 
     <TextView
-            android:text="Liste des Activites"
+            android:text="Liste des Activités"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textView3"
@@ -35,11 +35,14 @@
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintHorizontal_bias="0.176"
             app:layout_constraintVertical_bias="0.082"/>
     <Spinner
-            android:layout_width="144dp"
-            android:layout_height="22dp"
-            android:id="@+id/liste_activite_sp_liste_nouvelle_activite" app:layout_constraintEnd_toStartOf="@+id/liste_activite_btn_ajouter"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="@+id/liste_activite_btn_ajouter"
-            app:layout_constraintBottom_toBottomOf="@+id/liste_activite_btn_ajouter"/>
+            android:layout_width="201dp"
+            android:layout_height="35dp"
+            android:id="@+id/liste_activite_sp_liste_nouvelle_activite"
+            app:layout_constraintEnd_toStartOf="@+id/liste_activite_btn_ajouter"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/liste_activite_btn_ajouter"
+            app:layout_constraintBottom_toBottomOf="@+id/liste_activite_btn_ajouter"
+            app:layout_constraintHorizontal_bias="0.741" app:layout_constraintVertical_bias="0.48"/>
     <Button
             android:text="Inviter"
             android:layout_width="wrap_content"

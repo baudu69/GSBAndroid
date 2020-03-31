@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity() {
                 val intent = Intent(this, connexion::class.java)
                 startActivityForResult(intent, 0)
             } else {
-                toast("Vous etes bien deconnecte")
+                toast("Déconnexion réussie")
                 init()
             }
         }
@@ -57,7 +57,7 @@ class MainActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (data != null) {
             this.token =  data.getStringExtra("token")
-            this.btnConnexion.text = "Deconnexion"
+            this.btnConnexion.text = "Déconnexion"
             this.btnListerPraticien.isEnabled = true
             this.btnListerPraticien.isClickable = true
         }

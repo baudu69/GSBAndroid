@@ -8,7 +8,7 @@
         tools:context=".detail_activite">
 
     <TextView
-            android:text="Detail de l'activite : "
+            android:text="Détails de l'activité :"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/activite_detail_tv_titre" app:layout_constraintEnd_toEndOf="parent"
@@ -25,7 +25,7 @@
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.052"/>
     <TextView
-            android:text="Date de l'activite :"
+            android:text="Date de l'activité :"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/activite_detail_tv_date"
@@ -34,7 +34,7 @@
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintHorizontal_bias="0.104"/>
     <TextView
-            android:text="Lieu de l'activite :"
+            android:text="Lieu de l'activité :"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/activite_detail_tv_lieu"
@@ -43,7 +43,7 @@
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintHorizontal_bias="0.104"/>
     <TextView
-            android:text="Motif de l'activite :"
+            android:text="Motif de l'activité :"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/activite_detail_tv_motif"
@@ -60,7 +60,7 @@
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintHorizontal_bias="0.571" app:layout_constraintTop_toTopOf="@+id/textView8"/>
     <TextView
-            android:text="Specialiste : "
+            android:text="Spécialiste :"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textView8" app:layout_constraintEnd_toStartOf="@+id/activite_detail_btn_specialiste"
